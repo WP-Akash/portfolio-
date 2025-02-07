@@ -53,19 +53,19 @@ function hero() {
         y: 100,
         opacity: 0,
         delay:1.3,
-        duration: 0.5,
+        duration: 1.50,
     }, "1")
     tl.from(".text-wrapper p", {
         y: 120,
         opacity: 0,
-        duration: 0.8,
+        duration: 1.25,
         delay:1.10,
     })
 
     tl.from(".text-wrapper a.btn", {
         y: 10,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.50,
         stagger: 1,
         delay:0.2,
     })
@@ -436,36 +436,45 @@ function Breadcrumb_section(){
     })
 }
 // Loder
-function overlayloder(){
-    var tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.loderbg',
-            scroller: 'body',
-            // markers: true,
-            start: 'top 70%',
-            // end: 'bottom 50%',
-            // scrub: 1,
-            
-        }
+function splitText(element) {
+    const text = element.textContent;
+    element.textContent = '';
+    
+    return [...text].map(char => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.className = 'char';
+      element.appendChild(span);
+      return span;
     });
-    tl.from('.loderbg h2',{
-        opacity: 0.5,
-        scale :2,
-        duration: 1,
-        ease: "circ.out",
-    })
-    tl.to('.loderbg h2',{
-        opacity: 0.5,
-        duration:1,
-        ease: "circ.out",
-    })
-    tl.to('.loderbg',{
-        yPercent : -100,
-        duration:1,
-    })
-}
+  }
+  
+  function overlayLoader() {
+    const text = document.querySelector('#loading-text');
+    const chars = splitText(text);
+    
+    const tl = gsap.timeline();
 
-overlayloder()
+    tl.from(chars, {
+      opacity: 0,
+      scale: 2,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "circ.out"
+    })
+    .to(chars, {
+      opacity: 0.5,
+      duration: 1,
+      stagger: 0.02,
+      ease: "circ.out"
+    })
+    .to('.loderbg', {
+      yPercent: -100,
+      duration: 1
+    });
+  }
+
+overlayLoader();
 Breadcrumb_section()
 hero()
 cursor()
