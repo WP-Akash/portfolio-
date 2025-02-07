@@ -10,7 +10,7 @@ $('.client').owlCarousel({
             items: 1
         },
         1000: {
-            items: 1
+            items: 2
         }
     }
 })
@@ -67,7 +67,7 @@ function hero() {
         opacity: 0,
         duration: 1.2,
         stagger: 1,
-        delay:1.15,
+        delay:0.2,
     })
     tl.from(".hero .right_side", {
         y: -100,
@@ -176,11 +176,11 @@ function service(){
         opacity: 0,
         duration: 1,
     })
-    // tl.from(".grid .box", {
+    // tl.from(".myservice .box", {
     //     y: 40,
     //     opacity: 0,
     //     duration: 0.5,
-    //     stagger: 1,
+    //     stagger: 0.2,
     // })
 }
 // Skill
@@ -211,8 +211,8 @@ function skill(){
     tl.from(".myskill .single_skill", {
         y: 40,
         opacity: 0,
-        duration: 0.1,
-        stagger: 1,
+        duration: 1,
+        stagger: 0.2,
     })
 }
 
@@ -245,7 +245,7 @@ function different(){
         y: 40,
         opacity: 0,
         duration: 0.5,
-        stagger: 1,
+        stagger: 0.2,
     })
 }
 
@@ -277,7 +277,7 @@ function mywork(){
         y: 40,
         opacity: 0,
         duration: 0.5,
-        stagger: 1,
+        stagger: 0.2,
     })
     tl.from(".mywork owl-nav", {
         y: 40,
@@ -373,8 +373,8 @@ function blog(){
     tl.from(".blog .project.white-bg", {
         y: 10,
         opacity: 0,
-        duration: 1,
-        stagger: 1,
+        duration: 0.5,
+        stagger: 0.2,
     })
 }
 
@@ -399,8 +399,8 @@ function footer(){
     tl.from(".footer-color .social_media li", {
         y: 60,
         opacity: 0,
-        duration: 0.50,
-        stagger: 1,
+        duration: 0.5,
+        stagger: 0.2,
     })
     tl.from(".footer-color h6", {
         y: 10,
@@ -432,8 +432,7 @@ function Breadcrumb_section(){
         y: 60,
         opacity: 0,
         duration: 0.50,
-        stagger: 1,
-        delay:1,
+        stagger: 0.2,
     })
 }
 // Loder
